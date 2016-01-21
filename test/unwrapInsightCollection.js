@@ -8,20 +8,16 @@ var unwrappedCollectionWithAttr = require('./mock/unwrappedInsightCollection').w
 var unwrappedCollectionWithoutAttr = require('./mock/unwrappedInsightCollection').withoutAttributes;
 
 
-describe('Insight', function() {
-	describe('unwrapCollection()', function() {
+describe('Insight unwrapCollection()', function() {
 
-		it('should unwrap a collection of object with attributes', function() {
-			var unwrapped = unwrap(collectionWithAttributes);
-
-			expect(unwrapped).to.eql(unwrappedCollectionWithAttr);
-		});
-
-		it('should unwrap a collection of object without attributes', function() {
-			var unwrapped = unwrap(collectionWithoutAttributes);
-
-			expect(unwrapped).to.eql(unwrappedCollectionWithoutAttr);
-		});
-
+	it('should unwrap a collection of object with attributes', function() {
+		var unwrapped = unwrap(collectionWithAttributes);
+		expect(unwrapped).to.eql(unwrappedCollectionWithAttr);
 	});
+
+	it('should unwrap a collection of object without attributes', function() {
+		var unwrapped = unwrap(collectionWithoutAttributes);
+		expect(unwrapped).to.eql(unwrappedCollectionWithoutAttr);
+	});
+
 });
