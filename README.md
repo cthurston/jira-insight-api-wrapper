@@ -8,3 +8,6 @@ This will flatten a Insight Object.
 
 ## unwrapNestedObject
 This will flatten a linked/child Insight Object in another.
+
+## unwrapCollection
+This will flatten a collection of Insight Objects as returned from the api.
