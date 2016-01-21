@@ -8,13 +8,11 @@ describe('Insight unwrapNestedObject()', function() {
 
 	it('should unwrap a single product nested in another insight object', function() {
 		var unwrappedSingle = unwrapNestedProduct(nestedObjects.single);
-
 		expect(unwrappedSingle).to.eql(unwrappedNestedObjects.single);
 	});
 
 	it('should unwrap a multiple product nested in another insight object', function() {
 		var unwrappedSingle = unwrapNestedProduct(nestedObjects.multiple);
-
 		expect(unwrappedSingle).to.eql(unwrappedNestedObjects.multiple);
 	});
 

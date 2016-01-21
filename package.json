@@ -1,16 +1,18 @@
 {
   "name": "jira-insight-api-wrapper",
   "version": "0.0.1",
-  "description": "This is a wrapper library to manipulate data to and from the Insight plugin for jira.",
+  "description": "This is a wrapper library to manipulate data to and from the Insight plugin for Jira.",
   "license": "Public domain",
   "repository": {
     "type": "git",
     "url": "https://github.com/cthurston/jira-insight-api-wrapper.git"
   },
   "dependencies": {
-    "chai": "^3.4.1",
     "lodash": "^4.0.0",
-    "mocha": "^2.3.4",
     "underscore.string": "^3.2.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
   }
 }
