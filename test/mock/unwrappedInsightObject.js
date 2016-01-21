@@ -23,7 +23,7 @@ module.exports = {
 	"manufacturedDate": "16/Dec/12",
 	"computerModelNumber": "Dell Brick",
 	"computerSerialNumber": "M6800",
-	"softwareVersion": "3.1.2.1.23.44444",
+	"softwareVersion": null,
 	"warrantyStartDate": "15/Dec/15",
 	"case": "v2.0",
 	"notes": "<p>This object is one fine piece of work if you know what I mean.</p>",

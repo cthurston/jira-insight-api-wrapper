@@ -927,7 +927,7 @@ module.exports = {
 			"uniqueAttribute": false
 		},
 		"objectTypeAttributeId": 228,
-		"objectAttributeValues": [{"value": "3.1.2.1.23.44444"}],
+		"objectAttributeValues": [],
 		"hidden": false,
 		"objectId": 2298
 	},  {

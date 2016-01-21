@@ -2,7 +2,11 @@ var _ = require('lodash');
 
 var avatarSize = require('./config').avatar.size;
 
-module.exports = function(nestedInsightObject) {
+module.exports = function(nestedInsightObject, objectTypeAttribute) {
+	if(!nestedInsightObject.objectTypeAttribute){
+		nestedInsightObject.objectTypeAttribute = objectTypeAttribute; //Mutates original.
+	}
+
 	if (!isValidInsightObject(nestedInsightObject)) {
 		return null;
 	}

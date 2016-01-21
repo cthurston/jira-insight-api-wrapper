@@ -6,7 +6,7 @@ var avatarSize = require('./config').avatar.size;
 
 module.exports = unwrapObject;
 
-function unwrapObject(insightObject) {
+function unwrapObject(insightObject, objectTypeAttributes) {
 	if (!isValidInsightObject(insightObject)) {
 		return null;
 	}
@@ -29,14 +29,21 @@ function unwrapObject(insightObject) {
 	uwObject.objectType.name = insightObject.objectType.name;
 	uwObject.objectType.description = insightObject.objectType.description;
 
-	_.each(insightObject.attributes, function(attr) {
+	_.each(insightObject.attributes, function(attr, index) {
 
-		var attrKey = camelize(attr.objectTypeAttribute.name, true);
+		var objectTypeAttribute = attr.objectTypeAttribute;
+		if(!objectTypeAttribute && objectTypeAttributes){
+			objectTypeAttribute = objectTypeAttributes[index];
+		}
 
-		if (attr.objectTypeAttribute.referenceObjectTypeId) {  //Is this a nested object?
-			uwObject[attrKey] = unwrapNestedObject(attr);
-		} else if (attr.objectTypeAttribute.maximumCardinality === 1) {  //Is this a single value?
+		var attrKey = camelize(objectTypeAttribute.name, true);
+
+		if (objectTypeAttribute.referenceObjectTypeId) {  //Is this a nested object?
+			uwObject[attrKey] = unwrapNestedObject(attr, objectTypeAttribute);
+		} else if (objectTypeAttribute.maximumCardinality === 1 && attr.objectAttributeValues.length) {  //Is this a single value with a value?
 			uwObject[attrKey] = attr.objectAttributeValues[0].value;
+		} else if (objectTypeAttribute.maximumCardinality === 1) {  //Is this a single value OUT with a value?
+			uwObject[attrKey] = null;
 		} else {  //This is array of values
 			uwObject[attrKey] = _.map(attr.objectAttributeValues, function(v) {
 				return v.value;
@@ -49,9 +56,5 @@ function unwrapObject(insightObject) {
 }
 
 function isValidInsightObject(insightObject) {
-	if (!_.isArray(insightObject.attributes)) {
-		return false;
-	}
-
 	return true;
 }
