@@ -2,6 +2,9 @@
   "name": "jira-insight-api-wrapper",
   "version": "0.0.1",
   "description": "This is a wrapper library to manipulate data to and from the Insight plugin for Jira.",
+  "engines": {
+    "node": ">=0.10.3"
+  },
   "license": "Public domain",
   "repository": {
     "type": "git",
